@@ -16,7 +16,6 @@ function init() {
 
 init()};
 */
-let queryURL = "";
 let pictureURL = "";
 let gitName = "";
 let gitLocation = "";
