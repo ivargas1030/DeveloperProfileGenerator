@@ -1,83 +1,4 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-const util = require("util");
-//const generateHTML = require("./generateHTML");
-//const pdf = require("html-pdf");
-//const options = {format: 'Letter'};
-/*const questions = [
-  
-];
-
-function writeToFile(fileName, data) {
- 
-}
-
-function init() {
-
-init()};
-*/
-let queryURL = "";
-let pictureURL = "";
-let gitName = "";
-let gitLocation = "";
-let gitBio = "";
-let gitRepositories = "";
-let gitFollowers = "";
-let gitUsersFollowing = "";
-
-
-
-const writeFileAsync = util.promisify(fs.writeFile);
-
-function promptUser() {
-  return inquirer.prompt([
-    {
-      type: "input",
-      name: "username",
-      message: "What is your Github user name?"
-    },
-    {
-      type: "list",
-      name: "color",
-      choices: ["pink", "red", "blue", "green"],
-      message: "Pick a color",
-    },
-
-  ]);
-
-  }
-
-
-  const colors = {
-    green: {
-      wrapperBackground: "#E6E1C3",
-      headerBackground: "#C1C72C",
-      headerColor: "black",
-      photoBorderColor: "#black"
-    },
-    blue: {
-      wrapperBackground: "#5F64D3",
-      headerBackground: "#26175A",
-      headerColor: "white",
-      photoBorderColor: "#73448C"
-    },
-    pink: {
-      wrapperBackground: "#879CDF",
-      headerBackground: "#FF8374",
-      headerColor: "white",
-      photoBorderColor: "#FEE24C"
-    },
-    red: {
-      wrapperBackground: "#DE9967",
-      headerBackground: "#870603",
-      headerColor: "white",
-      photoBorderColor: "white"
-    }
-  };
-  
-
-  function generateHTML(answers) {
-    return `<!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
      <head>
         <meta charset="UTF-8" />
@@ -103,7 +24,7 @@ function promptUser() {
            height: 100%;
            }
            .wrapper {
-           background-color: ${colors[answers.color].wrapperBackground};
+           background-color: #879CDF;
            padding-top: 100px;
            }
            body {
@@ -145,8 +66,8 @@ function promptUser() {
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
-           background-color: ${colors[answers.color].headerBackground};
-           color: ${colors[answers.color].headerColor};
+           background-color: #FF8374;
+           color: white;
            padding: 10px;
            width: 95%;
            border-radius: 6px;
@@ -157,7 +78,7 @@ function promptUser() {
            border-radius: 50%;
            object-fit: cover;
            margin-top: -75px;
-           border: 6px solid ${colors[answers.color].photoBorderColor};
+           border: 6px solid #FEE24C;
            box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
            }
            .photo-header h1, .photo-header h2 {
@@ -200,8 +121,8 @@ function promptUser() {
            .card {
              padding: 20px;
              border-radius: 6px;
-             background-color: ${colors[answers.color].headerBackground};
-             color: ${colors[answers.color].headerColor};
+             background-color: #FF8374;
+             color: white;
              margin: 20px;
            }
            
@@ -228,49 +149,33 @@ function promptUser() {
            <div class="secondary-background"></div>
            <div class="main-container">
               <div class="orange-container">
-                 <img src="${pictureURL}" alt="" />
+                 <img src="" alt="" />
                  <div class="main-info">
                     <h1>Hi!</h1>
-                    <h2>My name is ${gitName}!</h2>
+                    <h2>My name is !</h2>
                     <div class="links">
-                       <div><i></i>${gitLocation} <i> </i> Github </div>
+                       <div><i></i> <i> </i> Github </div>
                     </div>
                  </div>
               </div>
-              <div class="bio">${gitBio}</div>
+              <div class="bio"></div>
               <div class="blocks">
                  <div class="data-grid">
                     <div class="data-grid-header">Public Repositories</div>
-                    <div class="data-grid-stat">${gitRepositories}</div>
+                    <div class="data-grid-stat"></div>
                  </div>
                  <div class="data-grid">
                     <div class="data-grid-header">Followers</div>
-                    <div class="data-grid-stat">${gitFollowers}</div>
+                    <div class="data-grid-stat"></div>
                  </div>
                  <div class="data-grid">
                     <div class="data-grid-header">GitHub Stars</div>
                  </div>
                  <div class="data-grid">
                     <div class="data-grid-header">Following</div>
-                    <div class="data-grid-stat">${gitUsersFollowing}</div>
+                    <div class="data-grid-stat"></div>
                  </div>
               </div>
            </div>
         </body>
-     </html>`;
-
-          }
-
-promptUser()
-  .then(function(answers) {
-    const html = generateHTML(answers);
-
-    return writeFileAsync("index.html", html);
-  })
-  .then(function() {
-    console.log("Successfully wrote to index.html");
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
-
+     </html>
