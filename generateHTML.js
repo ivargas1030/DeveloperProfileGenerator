@@ -172,4 +172,3 @@ const colors = {
            }
         </style>`
           }
-  
